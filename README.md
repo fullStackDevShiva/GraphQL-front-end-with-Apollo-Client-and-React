@@ -17,12 +17,24 @@ FYI, for this example, I have used Apollo Server with Node-Express-Mongo as my b
 ## Screenshots
 
 - Query to fetch posts
+  
+![post-list](https://github.com/user-attachments/assets/b74db2dc-93e3-4f7b-8572-0af857f8536f)
+
 
 - Query to fetch a single post by id
+  
+![post-details](https://github.com/user-attachments/assets/0e1221b8-cfed-4da7-86fb-34cb132defce)
+
 
 - Mutation to create a post
+  
+![create-post](https://github.com/user-attachments/assets/b9c9afcf-9014-45dd-bd8e-fb3a55375431)
+
 
 - Mutation to update a post
+  
+![edit-post](https://github.com/user-attachments/assets/a5a25608-ff0a-4885-babc-f9ffc09ae9f9)
+
 
 ## Techstack/Tools used
 
