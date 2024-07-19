@@ -44,3 +44,6 @@ FYI, for this example, I have used Apollo Server with Node-Express-Mongo as my b
 - Typescript
 - Vite
 - Tailwind CSS
+
+Note: Primary goal of this project is to demonstrate how GraphQL is used from the frontend application. That is why, some of the UIs/functionalities such as like, comment and views are static and used as just placeholders only. 
+
