@@ -1,30 +1,34 @@
-# React + TypeScript + Vite
+## GraphQL-front-end-with-Apollo-Client-and-React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple project to setup a GraphQL client and make frontend requests using Apollo Client with React JS and Typescript.
 
-Currently, two official plugins are available:
+FYI, for this example, I have used Apollo Server with Node-Express-Mongo as my backend server. Please checkout the schema and resolvers from this link: https://github.com/fullStackDevShiva/GraphQL-API-with-Apollo-Server-and-Node-Js
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Functionalities
 
-## Expanding the ESLint configuration
+1. Integration of Apollo Client into React application
+2. Implementation of GraphQL Queries and Mutations from the frontend
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Query to fetch posts from the server
+- Query to fetch a single post by id
+- Mutation to create a post
+- Mutation to update a post
 
-- Configure the top-level `parserOptions` property like this:
+## Screenshots
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- Query to fetch posts
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Query to fetch a single post by id
+
+- Mutation to create a post
+
+- Mutation to update a post
+
+## Techstack/Tools used
+
+- Apollo Client
+- GraphQL
+- React
+- Typescript
+- Vite
+- Tailwind CSS

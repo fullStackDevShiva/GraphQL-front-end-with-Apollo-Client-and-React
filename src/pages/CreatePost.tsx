@@ -37,37 +37,37 @@ const CreatePost = () => {
   };
 
   return (
-    <div className="create-post">
+    <div className="create-post-page w-3/4 h-auto items-center p-30">
       <h4>Create a new post</h4>
-      <div className="card mt-4 mb-8">
-        <form className="max-w-md mt-4" onSubmit={handleSubmit}>
-          <section className="flex flex-col field md:flex-row text-left">
-            <div className="w-full mt-2 md:mt-0">
-              <label htmlFor="title">Title</label>
-              <input
-                type="text"
-                id="title"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                placeholder="Title of the post"
-              />
-            </div>
-          </section>
-          <section className="flex flex-col field md:flex-row text-left">
-            <div className="w-full mt-2 md:mt-0">
-              <label htmlFor="content">Content</label>
-              <textarea
-                id="content"
-                rows={4}
-                cols={40}
-                value={content}
-                onChange={(e) => setContent(e.target.value)}
-                placeholder="Content of the post"
-              />
-            </div>
-          </section>
+      <div className="card mt-4 p-12">
+        <form className="items-center" onSubmit={handleSubmit}>
+          <div className="w-full flex flex-col text-left mb-4">
+            <label htmlFor="title" className="text-lg font-bold">
+              Title
+            </label>
+            <input
+              type="text"
+              id="title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder="Title of the post"
+              className="h-10 items-center p-2 text-base border border-blue-500 rounded-md"
+            />
+          </div>
+          <div className="w-full mt-2 md:mt-0 flex flex-col text-left mb-8">
+            <label htmlFor="content" className="text-lg font-bold">
+              Content
+            </label>
+            <textarea
+              id="content"
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+              placeholder="Content of the post"
+              className="p-2 text-base border border-blue-500 rounded-md min-h-44 h-auto max-h-96"
+            />
+          </div>
 
-          <div className="flex mt-4 justify-center">
+          <div className="flex w-full justify-center">
             <button
               className="btn btn-small btn-green-outline mx-1"
               type="submit"
@@ -76,7 +76,7 @@ const CreatePost = () => {
               Add Post
             </button>
             <button
-              className="btn btn-small btn-red-outline mx-1"
+              className="btn btn-small btn-orange-outline mx-1"
               onClick={() => navigate("/")}
             >
               Cancel

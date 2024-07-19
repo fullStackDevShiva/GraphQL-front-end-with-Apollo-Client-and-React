@@ -3,17 +3,18 @@ import FetchPosts from "./FetchPosts";
 
 function Home() {
   const navigate = useNavigate();
+
   return (
-    <div className="home-page w-full">
+    <div className="home-page">
       <h3>Apollo Client with React and Typescript</h3>
 
       <div className="card-top flex justify-between mt-12">
-        <h4 className="post-list-header">Post List</h4>
+        <h4 className="post-list-header">Recent posts</h4>
         <button
-          className="btn btn-small btn-blue-outline"
+          className="btn btn-small btn-green-outline"
           onClick={() => navigate("/create")}
         >
-          New Post
+          + New Post
         </button>
       </div>
 
