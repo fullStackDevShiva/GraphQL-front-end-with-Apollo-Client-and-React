@@ -11,12 +11,12 @@ import {
 
 const PostDetails = () => {
   const { id } = useParams();
-  // const navigate = useNavigate();
 
   const { loading, error, data } = useQuery(POST_QUERY, {
     variables: { postId: id },
   });
-  console.log(data);
+
+  // console.log(data);
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
@@ -32,7 +32,7 @@ const PostDetails = () => {
             />
           </div>
           <div className="card-btns w-full flex flex-row xs:flex-col items-center text-base mb-8 py-2 px-12 xs:px-4">
-            <div className="left-btns  flex flex-row justify-start xs:justify-center xs:mb-4 w-1/2 xs:w-full">
+            <div className="left-btns flex flex-row justify-start xs:justify-center items-center xs:mb-4 w-1/2 xs:w-full">
               <Link to={"/"} className="btn btn-blue-link px-2 mr-4">
                 <span className="flex flex-row">
                   <FaCircleArrowLeft
@@ -57,7 +57,7 @@ const PostDetails = () => {
                 </span>
               </Link>
             </div>
-            <div className="right-btns flex flex-row justify-end xs:justify-center w-1/2 xs:w-full">
+            <div className="right-btns flex flex-row justify-end xs:justify-center items-center w-1/2 xs:w-full">
               <span className="flex flex-row mr-5">
                 <FaComment
                   color="#0096FF"

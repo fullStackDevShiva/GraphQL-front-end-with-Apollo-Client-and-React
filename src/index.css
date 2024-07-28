@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -19,48 +18,43 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
 body {
-  /* margin: 0; */
   display: flex;
   place-items: center;
-  /* min-height: 100%;
-  height: 100%;
-  width: 100%; */
 }
 
-/* body {
-  @apply bg-gray-100 text-gray-700 antialiased;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-} */
-
-
 @layer base {
+  /*custom page layout*/
   .page-layout {
-    @apply flex min-h-screen flex-col items-center;
+    @apply flex min-h-screen flex-col items-center xl:mx-12 lg:mx-10 md:mx-4 sm:mx-2 xs:mx-2 xl:px-4 lg:px-4 md:px-2 sm:px-2 xs:px-2 xl:py-10 lg:py-8 md:py-8 sm:py-4 xs:py-4;
+  }
+  /*custom list*/
+  .post-list {
+    @apply grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-3 my-4;
+  }
+  /*custom card*/
+  .card {
+    @apply p-2 text-gray-600 border border-gray-200 border-dotted rounded-2xl bg-white relative;
   }
 
   h1 {
-    @apply text-4xl font-bold;
+    @apply text-4xl font-bold xs:text-2xl;
   }
   h2 {
-    @apply text-3xl font-bold;
+    @apply text-3xl font-bold xs:text-xl;
   }
   h3 {
-    @apply text-2xl font-bold;
+    @apply text-2xl font-bold xs:text-lg;
   }
   h4 {
-    @apply text-xl font-bold;
+    @apply text-xl font-bold xs:text-base;
+  }
+
+  a {
+    @apply font-semibold to-blue-500 decoration-inherit;
+  }
+  a:hover {
+    @apply to-blue-700;
   }
 
   /*custom buttons*/
@@ -101,26 +95,26 @@ body {
     @apply bg-transparent text-gray-400 border border-gray-400;
   }
 
-  .btn-green-link{
+  .btn-green-link {
     @apply bg-none text-green-700 border-none;
   }
-  .btn-green-link:hover{
+  .btn-green-link:hover {
     @apply rounded-md bg-green-50 text-green-700 border border-green-600/20;
   }
-  .btn-blue-link{
+  .btn-blue-link {
     @apply bg-none text-blue-700 border-none;
   }
-  .btn-blue-link:hover{
+  .btn-blue-link:hover {
     @apply rounded-md bg-blue-50 text-blue-700 border border-blue-600/20;
   }
-  .btn-orange-link{
+  .btn-orange-link {
     @apply bg-none text-orange-400 border-none;
   }
-  .btn-orange-link:hover{
+  .btn-orange-link:hover {
     @apply rounded-md bg-orange-50 text-orange-700 border border-orange-600/20;
   }
 
-  /*custom badge*/
+  /*custom badges*/
   .badge-gray {
     @apply inline-flex rounded-full p-2 text-xs font-bold bg-transparent text-gray-400 border border-gray-400;
   }
@@ -132,61 +126,5 @@ body {
   }
   .badge-orange {
     @apply inline-flex rounded-full p-2 text-xs font-bold bg-transparent text-orange-400 border border-orange-400;
-  }
-
-  /* Extra small devices (phones, 600px and down) */
-  @media only screen and (max-width: 599px) {
-    .page-layout {
-      @apply px-2 py-4 mx-2;
-    }
-    h1 {
-      @apply text-2xl;
-    }
-    h4 {
-      @apply text-base;
-    }
-  }
-
-  /* Small devices (portrait tablets and large phones, 600px and up) */
-  @media only screen and (min-width: 600px) {
-    .page-layout {
-      @apply px-2 py-4 mx-2;
-    }
-  }
-
-  /* Medium devices (landscape tablets, 768px and up) */
-  @media only screen and (min-width: 768px) {
-    .page-layout {
-      @apply px-2 py-8 mx-4;
-    }
-  }
-
-  /* Large devices (large portrait tablets/laptops/desktops, 992px and up) */
-  @media only screen and (min-width: 992px) {
-    .page-layout {
-      @apply mx-10 px-4 py-8;
-    }
-  }
-
-  /* Extra large devices (large laptops and desktops, 1280px and up) */
-  @media only screen and (min-width: 1280px) {
-    .page-layout {
-      @apply mx-12 py-6;
-    }
-  }
-}
-
-@layer components {
-  .card {
-    @apply block p-2 text-gray-600 text-left border border-blue-200 border-dashed rounded-2xl bg-white relative;
-  }
-  .card .info {
-    @apply mt-1 text-xs;
-  }
-
-  @media only screen and (max-width: 600px) {
-    .card {
-      @apply w-auto h-auto;
-    }
   }
 }

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
 import Create_POST_MUTATION from "../graphql/mutations/CreatePost";
+import POSTS_QUERY from "../graphql/queries/FetchPosts";
 
 const CreatePost = () => {
   const [title, setTitle] = useState("");
@@ -13,33 +14,26 @@ const CreatePost = () => {
       title: title,
       content: content,
     },
-    refetchQueries: ["Posts"],
+    refetchQueries: [{ query: POSTS_QUERY }],
+    onCompleted: () => navigate("/"),
   });
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(title);
-    console.log(content);
-    if (title !== "" || content !== "") {
-      if (title.length > 10 && content.length > 10) {
-        await createPost();
-        // setTitle("");
-        // setContent("");
-        navigate("/");
-      } else {
-        alert("Please enter minimum 10 characters");
-        return;
-      }
-    } else {
-      alert("Please enter both title and content for your post!");
-      return;
+    // console.log(title);
+    // console.log(content);
+    try {
+      await createPost();
+      console.log("Created the post!");
+    } catch (error) {
+      console.error(error);
     }
   };
 
   return (
-    <div className="create-post-page w-3/4 h-auto items-center p-30">
-      <h4>Create a new post</h4>
-      <div className="card mt-4 p-12">
+    <div className="create-post-page w-3/4 xs:w-full h-auto items-center p-30 mt-4 xs:mt-8">
+      <h1>Create a new post</h1>
+      <div className="card mt-4 p-12 xs:p-6">
         <form className="items-center" onSubmit={handleSubmit}>
           <div className="w-full flex flex-col text-left mb-4">
             <label htmlFor="title" className="text-lg font-bold">

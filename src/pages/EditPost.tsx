@@ -1,9 +1,10 @@
 import { useQuery, useMutation } from "@apollo/client";
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { Post } from "../types/AllTypes";
 import POST_QUERY from "../graphql/queries/GetPostDetails";
 import Update_POST_MUTATION from "../graphql/mutations/UpdatePost";
-import { Post } from "../types/AllTypes";
+import POSTS_QUERY from "../graphql/queries/FetchPosts";
 
 const EditPost = () => {
   const { id } = useParams();
@@ -11,35 +12,40 @@ const EditPost = () => {
     variables: { postId: id },
   });
 
-  const [title, setTitle] = useState<Post["title"]>(data.post.title || " ");
+  const [title, setTitle] = useState<Post["title"]>(data.post.title || null);
   const [content, setContent] = useState<Post["content"]>(
-    data.post.content || " "
+    data.post.content || null
   );
 
   const navigate = useNavigate();
 
   const [updatePost] = useMutation(Update_POST_MUTATION, {
     variables: {
-      updatePostId: id,
+      updatePostId: data.post.id,
       title: title,
       content: content,
     },
-    refetchQueries: ["Posts"],
+    refetchQueries: [{ query: POSTS_QUERY }],
+    onCompleted: () => navigate(`/post/${data.post.id}`),
   });
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await updatePost();
-    navigate("/");
+    try {
+      await updatePost();
+      console.log("Updated the post!");
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
   return (
-    <div className="edit-post-page w-3/4 h-auto items-center p-30">
-      <h4>Edit post</h4>
-      <div className="card mt-4 p-12">
+    <div className="edit-post-page w-3/4 xs:w-full h-auto items-center p-30 mt-4 xs:mt-8">
+      <h1>Edit post</h1>
+      <div className="card mt-4 p-12 xs:p-6">
         <form className="items-center" onSubmit={handleSubmit}>
           <div className="w-full flex flex-col text-left mb-4">
             <label htmlFor="title" className="text-lg font-bold">
@@ -75,7 +81,7 @@ const EditPost = () => {
             </button>
             <button
               className="btn btn-small btn-orange-outline mx-1"
-              onClick={() => navigate("/")}
+              onClick={() => navigate(`/post/${data.post.id}`)}
             >
               Cancel
             </button>
